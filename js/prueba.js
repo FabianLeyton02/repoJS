@@ -25,12 +25,30 @@ function dividir(a, b) {
     }
 }
 
-let precio = parseInt(prompt("Ingrese el precio del producto"));
-let cuotas = parseInt(prompt("Ingrese la cantidad de cuotas"));
-let resultado = dividir(precio, cuotas)
+function sumarImportes(carrito) {
+    let importe = 0;
+    for (let index = 0; index < carrito.length; index++) {
+        importe += carrito[index];
+    }
+    return importe;
+}
+
+const carrito = [];
+
+let cantidad = parseInt(prompt("Ingrese la cantidad de productos"));
+
+let precio = 0;
+for (let index = 0; index < cantidad; index++) {
+    precio = parseInt(prompt("Ingrese el precio del producto " + (index + 1)));
+    carrito.push(precio);
+}
+
+let importefinal = sumarImportes(carrito);
+let cuotas = parseInt(prompt("El total de la compra es de $" + importefinal + ".\nIngrese la cantidad de cuotas"));
+let resultado = dividir(importefinal, cuotas)
 
 if (resultado == 0) {
-    if (precio == 0) {
+    if (importefinal == 0) {
         alert("El precio debe ser mayor a 0");
     }
     if (cuotas == 0) {
