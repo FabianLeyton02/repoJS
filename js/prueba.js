@@ -17,6 +17,13 @@
 //     }
 // }
 
+class Articulo {
+    constructor(nombre, precio) {
+        this.nombre = nombre;
+        this.precio = parseFloat(precio);
+    }
+}
+
 function dividir(a, b) {
     if (b == 0) {
         return 0;
@@ -25,35 +32,56 @@ function dividir(a, b) {
     }
 }
 
-function sumarImportes(carrito) {
-    let importe = 0;
-    for (let index = 0; index < carrito.length; index++) {
-        importe += carrito[index];
+function sumarImportes(articulos) {
+    let importefinal = 0;
+    for (let index = 0; index < articulos.length; index++) {
+        importefinal += articulos[index].precio;
     }
-    return importe;
+    return importefinal;
 }
 
-const carrito = [];
+function agregarArticulos() {
+    let cantidad = parseInt(prompt("Ingrese la cantidad de productos"));
 
-let cantidad = parseInt(prompt("Ingrese la cantidad de productos"));
-
-let precio = 0;
-for (let index = 0; index < cantidad; index++) {
-    precio = parseInt(prompt("Ingrese el precio del producto " + (index + 1)));
-    carrito.push(precio);
+    let precio = 0;
+    let nombre = '';
+    for (let index = 0; index < cantidad; index++) {
+        nombre = prompt("Ingrese el nombre del artículo " + (index + 1))
+        precio = prompt("Ingrese el precio del producto " + (index + 1));
+        articulos.push(new Articulo(nombre, precio));
+    }
 }
 
-let importefinal = sumarImportes(carrito);
-let cuotas = parseInt(prompt("El total de la compra es de $" + importefinal + ".\nIngrese la cantidad de cuotas"));
-let resultado = dividir(importefinal, cuotas)
+function calcularImporteArticulos(articulos){
+    let importefinal = sumarImportes(articulos);
+    let cuotas = parseInt(prompt("El total de la compra es de $" + importefinal + ".\nIngrese la cantidad de cuotas"));
+    let resultado = dividir(importefinal, cuotas)
 
-if (resultado == 0) {
-    if (importefinal == 0) {
-        alert("El precio debe ser mayor a 0");
+    if (resultado == 0) {
+        if (importefinal == 0) {
+            alert("El precio debe ser mayor a 0");
+        }
+        if (cuotas == 0) {
+            alert("La cantidad de cuotas debe ser mayor a 0");
+        }
+    } else {
+        alert("En " + cuotas + " cuotas, el monto de cada una será de $" + resultado);
     }
-    if (cuotas == 0) {
-        alert("La cantidad de cuotas debe ser mayor a 0");
+}
+
+const articulos = [];
+let entrada = 0;
+
+while (entrada != 4){
+    entrada = parseInt(prompt("1 - Agregar articulos\n2 - Calcular Importes\n3 - Salir"))
+    switch(entrada){
+        case 1:
+            agregarArticulos();
+            break;
+        case 2:
+            calcularImporteArticulos(articulos);
+            break;
+        case 3:
+            break;
     }
-} else {
-    alert("En " + cuotas + " cuotas, el monto de cada una será de $" + resultado);
 }
