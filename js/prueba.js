@@ -72,7 +72,7 @@ function calcularImporteArticulos(articulos){
 const articulos = [];
 let entrada = 0;
 
-while (entrada != 4){
+while (entrada != 3){
     entrada = parseInt(prompt("1 - Agregar articulos\n2 - Calcular Importes\n3 - Salir"))
     switch(entrada){
         case 1:
