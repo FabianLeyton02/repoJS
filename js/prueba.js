@@ -45,9 +45,14 @@ function agregarArticulos() {
 
     let precio = 0;
     let nombre = '';
+    let lista = document.createElement("ul")
+    document.body.appendChild(lista);
     for (let index = 0; index < cantidad; index++) {
         nombre = prompt("Ingrese el nombre del artículo " + (index + 1))
         precio = prompt("Ingrese el precio del producto " + (index + 1));
+        let li = document.createElement("li");
+        li.innerHTML = `${nombre} -- $${precio}`;
+        lista.appendChild(li)
         articulos.push(new Articulo(nombre, precio));
     }
 }
