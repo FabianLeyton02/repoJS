@@ -7,16 +7,24 @@ header {
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color:cadetblue;
+    background-color: cadetblue;
     height: 100px;
 }
 
-header h1{
+header h1 {
     color: aliceblue;
 }
 
 main {
     flex-grow: 1;
+    height: 100vh;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    bottom: 0;
+    position: sticky;
 }
 
 .carrito {
@@ -24,20 +32,44 @@ main {
     text-align: center;
 }
 
-.listaBotones{
+.listaBotones {
     display: inline-flex;
     justify-content: space-around;
     width: 100%;
     list-style: none;
 }
 
-.total{
+.total {
     display: flex;
     justify-content: center;
-    width: 100%;
 }
 
-.importe{
+.importe {
     display: flex;
     justify-content: center;
+}
+
+button {
+    background-color: #2532ec;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+
+#listado{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: center;
+}
+
+#listado li {
+    padding: 10px;
+}
+
+.imagen{
+    width: 150px;
+    height: 150px;
 }
