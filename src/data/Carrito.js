@@ -12,8 +12,6 @@ export default class Carrito {
             cantidad += elemento.cantidad;
         });
         carritoTxt.innerHTML = `Ver Carrito (${cantidad})`
-        let boton = document.getElementById("vaciar")
-        cantidad == 0 ? boton.setAttribute("hidden", "true") : boton.removeAttribute("hidden");
     }
 
     CalcularImporte() {
