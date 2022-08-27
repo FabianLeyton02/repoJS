@@ -27,6 +27,11 @@ footer {
     position: sticky;
 }
 
+footer li{
+    display: inline-flex;
+    padding: 10px;
+}
+
 .carrito {
     list-style: decimal;
     text-align: center;
@@ -72,4 +77,10 @@ button {
 .imagen{
     width: 150px;
     height: 150px;
+}
+
+#carrito{
+    text-align: center;
+    border: 2px;
+    border-color: #2532ec;
 }

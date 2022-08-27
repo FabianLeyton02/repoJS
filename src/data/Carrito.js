@@ -1,4 +1,5 @@
 import Producto from "./Producto.js";
+import CarritoItem from "./CarritoItem.js";
 
 export default class Carrito {
     constructor() {
@@ -6,27 +7,54 @@ export default class Carrito {
     }
     CalcularCantidad() {
         let carritoTxt = document.getElementById("VerCarrito")
-        carritoTxt.innerHTML = `Ver carrito (${this.listaCarrito.length})`
+        let cantidad = 0;
+        this.listaCarrito.forEach((elemento) => {
+            cantidad += elemento.cantidad;
+        });
+        carritoTxt.innerHTML = `Ver Carrito (${cantidad})`
+        let boton = document.getElementById("vaciar")
+        cantidad == 0 ? boton.setAttribute("hidden", "true") : boton.removeAttribute("hidden");
     }
 
     CalcularImporte() {
         let importeTxt = document.getElementById("importe")
         let importe = 0;
-        this.listaCarrito.forEach((producto) => {
-            importe += producto.precio;
+        this.listaCarrito.forEach((elemento) => {
+            importe += elemento.total;
         });
         importeTxt.innerHTML = `Total $${importe}`;
         this.CalcularCantidad();
     }
 
     Agregar(producto) {
-        let lista = document.getElementById("carrito")
-        let li = document.createElement("li");
-        li.innerHTML = `${producto.nombre}   $${producto.precio}`;
-        lista.appendChild(li)
-        this.listaCarrito.push(producto);
+        if (this.listaCarrito.length > 0) {
+            let encontrado = false;
+            this.listaCarrito.forEach((elemento) => {
+                if (elemento.producto.id == producto.id) {
+                    encontrado = true;
+                    elemento.cantidad++;
+                    elemento.total = elemento.cantidad * producto.precio;
+                    let li = document.getElementById(`carrito-${producto.id}`);
+                    li.innerHTML = `${elemento.cantidad} ${producto.nombre}   $${elemento.total}`;
+                }
+            });
+            if (!encontrado) {
+                this.AgregarAux(producto);
+            }
+        } else {
+            this.AgregarAux(producto);
+        }
         this.CalcularImporte();
         localStorage.setItem('carrito', JSON.stringify(this.listaCarrito));
+    }
+
+    AgregarAux(producto) {
+        let lista = document.getElementById("carrito")
+        let li = document.createElement("li");
+        li.innerHTML = `1 ${producto.nombre}   $${producto.precio}`;
+        li.setAttribute("id", `carrito-${producto.id}`);
+        lista.appendChild(li)
+        this.listaCarrito.push(new CarritoItem(producto, 1));
     }
 
     Vaciar() {
