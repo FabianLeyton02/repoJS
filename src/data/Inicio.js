@@ -9,7 +9,7 @@ function cargarProductosEnPantalla(productos) {
         let boton = document.createElement("button");
         let imagen = document.createElement("img");
         let nombreimagen = `producto${producto.id}.jpg`;
-        imagen.setAttribute("src", `/src/media/${nombreimagen}`);
+        imagen.setAttribute("src", `./src/media/${nombreimagen}`);
         imagen.setAttribute("alt", nombreimagen);
         imagen.setAttribute("class", "imagen");
         nombre.innerHTML = producto.nombre;
