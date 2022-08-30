@@ -11,6 +11,12 @@ for (let index = 0; index < ids; index++) {
     let indice = index + 1;
     let boton = document.getElementById(indice.toString());
     boton.addEventListener('click', () => {
+        Swal.fire({
+            title: 'Genial!',
+            text: 'Se agregó un producto al carrito',
+            icon: 'success',
+            confirmButtonText: 'Cerrar'
+        })
         carrito.Agregar(productos[index]);
     });
 }
@@ -29,6 +35,11 @@ if (carritostorage) {
 
 let boton2 = document.getElementById("vaciar");
 boton2.addEventListener("click", () => {
+    Swal.fire({
+        title: 'Se han quitado los elementos del carrito',
+        icon: 'info',
+        confirmButtonText: 'Cerrar'
+    })
     carrito.Vaciar();
 })
 
