@@ -30,14 +30,26 @@ function cargarProductos(nombre, precio, productos) {
 }
 
 export function iniciar() {
+
     let productos = [];
 
-    cargarProductos("Hamburguesa", 100, productos);
-    cargarProductos("Pizza", 300, productos);
-    cargarProductos("Cerveza", 120, productos);
-    cargarProductos("Milanesa", 220, productos);
+    fetch('./src/data/data.json')
+        .then((res) => res.json())
+        .then((data) => {
+            data.forEach((producto) => {
+                productos.push(new Producto(producto.id, producto.nombre, producto.precio));
+            })
+        })
+
+    console.log(productos);
+
+    // cargarProductos("Hamburguesa", 100, productos);
+    // cargarProductos("Pizza", 300, productos);
+    // cargarProductos("Cerveza", 120, productos);
+    // cargarProductos("Milanesa", 220, productos);
 
     cargarProductosEnPantalla(productos);
 
+    ;
     return productos;
 }
