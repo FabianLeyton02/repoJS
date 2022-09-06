@@ -1,5 +1,3 @@
-import Producto from "./Producto.js";
-
 export default class CarritoItem {
     constructor(producto, cantidad) {
         this.producto = producto;

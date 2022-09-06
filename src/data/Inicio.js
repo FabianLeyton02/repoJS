@@ -1,5 +1,3 @@
-import Producto from "./Producto.js";
-
 function cargarProductosEnPantalla(productos) {
     let lista = document.getElementById("listado")
     productos.forEach((producto) => {
@@ -24,32 +22,9 @@ function cargarProductosEnPantalla(productos) {
     });
 }
 
-function cargarProductos(nombre, precio, productos) {
-    let id = productos.length + 1;
-    productos.push(new Producto(id, nombre, precio));
-}
-
-export function iniciar() {
-
-    let productos = [];
-
-    fetch('./src/data/data.json')
-        .then((res) => res.json())
-        .then((data) => {
-            data.forEach((producto) => {
-                productos.push(new Producto(producto.id, producto.nombre, producto.precio));
-            })
-        })
-
-    console.log(productos);
-
-    // cargarProductos("Hamburguesa", 100, productos);
-    // cargarProductos("Pizza", 300, productos);
-    // cargarProductos("Cerveza", 120, productos);
-    // cargarProductos("Milanesa", 220, productos);
-
-    cargarProductosEnPantalla(productos);
-
-    ;
-    return productos;
+export async function iniciar() {
+    const call = await fetch('./src/data/productos.json')
+    const resp = await call.json();
+    cargarProductosEnPantalla(resp);
+    return resp;
 }

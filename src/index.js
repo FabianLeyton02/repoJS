@@ -4,7 +4,7 @@ import {
 } from "./data/Inicio.js";
 
 let carrito = new Carrito();
-let productos = iniciar();
+let productos = await iniciar();
 
 let ids = productos.length;
 for (let index = 0; index < ids; index++) {

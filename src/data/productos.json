@@ -1,21 +1,25 @@
 [{
     "id": 1,
     "nombre": "Hamburguesa",
-    "precio": 100
+    "precio": 180
 }, {
     "id": 2,
     "nombre": "Pizza",
-    "precio": 300
+    "precio": 450
 }, {
     "id": 3,
     "nombre": "Cerveza",
-    "precio": 120
+    "precio": 150
 }, {
     "id": 4,
     "nombre": "Milanesa",
-    "precio": 220
+    "precio": 350
 }, {
     "id": 5,
     "nombre": "Asado",
     "precio": 500
+}, {
+    "id": 6,
+    "nombre": "Empanadas",
+    "precio": 100
 }]

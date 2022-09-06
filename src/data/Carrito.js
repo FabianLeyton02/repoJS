@@ -1,4 +1,3 @@
-import Producto from "./Producto.js";
 import CarritoItem from "./CarritoItem.js";
 
 export default class Carrito {
