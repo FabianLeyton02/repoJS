@@ -2,6 +2,7 @@ import Carrito from "./data/Carrito.js";
 import {
     iniciar
 } from "./data/Inicio.js";
+import Producto from "./data/Producto.js";
 
 let carrito = new Carrito();
 let productos = await iniciar();
