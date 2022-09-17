@@ -28,4 +28,27 @@
     "nombre": "Empanadas",
     "precio": 100,
     "categoria": 1
+}, {
+    "id": 7,
+    "nombre": "Helado",
+    "precio": 150,
+    "categoria": 3
+}
+, {
+    "id": 8,
+    "nombre": "Chocotorta",
+    "precio": 200,
+    "categoria": 3
+}
+, {
+    "id": 9,
+    "nombre": "Coca-Cola",
+    "precio": 100,
+    "categoria": 2
+}
+, {
+    "id": 10,
+    "nombre": "Sprite",
+    "precio": 100,
+    "categoria": 2
 }]
