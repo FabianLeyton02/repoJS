@@ -37,6 +37,12 @@ footer li{
     text-align: center;
 }
 
+.filtros{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
 .listaBotones {
     display: inline-flex;
     justify-content: space-around;

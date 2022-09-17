@@ -1,25 +1,31 @@
 [{
     "id": 1,
     "nombre": "Hamburguesa",
-    "precio": 180
+    "precio": 180,
+    "categoria": 1
 }, {
     "id": 2,
     "nombre": "Pizza",
-    "precio": 450
+    "precio": 450,
+    "categoria": 1
 }, {
     "id": 3,
     "nombre": "Cerveza",
-    "precio": 150
+    "precio": 150,
+    "categoria": 2
 }, {
     "id": 4,
     "nombre": "Milanesa",
-    "precio": 350
+    "precio": 350,
+    "categoria": 1
 }, {
     "id": 5,
     "nombre": "Asado",
-    "precio": 500
+    "precio": 500,
+    "categoria": 1
 }, {
     "id": 6,
     "nombre": "Empanadas",
-    "precio": 100
+    "precio": 100,
+    "categoria": 1
 }]

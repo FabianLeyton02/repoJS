@@ -1,6 +1,6 @@
 import Producto from "./Producto.js";
 
-function cargarProductosEnPantalla(productos) {
+export function cargarProductosEnPantalla(productos) {
     let lista = document.getElementById("listado")
     productos.forEach((producto) => {
         let li = document.createElement("li");
@@ -27,6 +27,5 @@ function cargarProductosEnPantalla(productos) {
 export async function iniciar() {
     const call = await fetch('./src/data/listadoProductos.json')
     const resp = await call.json();
-    cargarProductosEnPantalla(resp);
     return resp;
 }
